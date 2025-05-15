@@ -20,14 +20,14 @@
 
       rooms.forEach(room => {
         const roomDiv = document.createElement("div");
-        roomDiv.classList.add("room");
+        roomDiv.classList.add("room-card");
 
         roomDiv.innerHTML = `
+          ${room.image ? `<img src="${room.image}" alt="${room.title}" class="room-image-card" />` : ''}
           <h3>${room.title}</h3>
           <p>${room.description}</p>
           <p><strong>Location:</strong> ${room.location}</p>
           <p><strong>Rent:</strong> ₹${room.rent}</p>
-          ${room.image ? `<img src="${room.image}" alt="${room.title}" class="room-image" />` : ''}
           <a href="room-details.html?id=${room._id}">View Details</a>
         `;
 

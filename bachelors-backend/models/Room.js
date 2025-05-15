@@ -6,7 +6,8 @@ const roomSchema = new mongoose.Schema({
   rent: Number,
   contact: String,
   description: String,
-  available: Boolean
+  available: Boolean,
+  image: String
 });
 
 module.exports = mongoose.model('Room', roomSchema);

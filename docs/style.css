@@ -188,3 +188,57 @@ body {
     margin-top: 10px;
   }
 }
+
+/* Room card styles */
+.room-card {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 16px;
+  margin: 16px;
+  max-width: 300px;
+  display: inline-block;
+  vertical-align: top;
+  transition: transform 0.2s ease;
+}
+
+.room-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border-color: #999;
+}
+
+.room-image-card {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  border: 1px solid #ddd;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.room-card h3 {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+  color: #333;
+}
+
+.room-card p {
+  margin: 4px 0;
+  color: #555;
+  font-size: 14px;
+}
+
+.room-card a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.room-card a:hover {
+  text-decoration: underline;
+}

@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (res.ok) {
           alert('Room posted successfully!');
-          const location = document.getElementById('location').value;
+          const location = document.getElementById('locationInput').value;
           document.getElementById('locationInput').value = location; // Update search input with posted location
           postRoomForm.reset();
           searchRooms();
@@ -137,14 +137,14 @@ async function fetchRooms() {
 
   rooms.forEach(room => {
     const roomDiv = document.createElement("div");
-    roomDiv.classList.add("room");
+    roomDiv.classList.add("room-card");
 
     roomDiv.innerHTML = `
+      ${room.image ? `<img src="${room.image}" alt="${room.title}" class="room-image-card" />` : ''}
       <h3>${room.title}</h3>
       <p>${room.description}</p>
       <p><strong>Location:</strong> ${room.location}</p>
       <p><strong>Rent:</strong> ₹${room.rent}</p>
-      ${room.image ? `<img src="${room.image}" alt="${room.title}" class="room-image" />` : ''}
       <a href="room-details.html?id=${room._id}">View Details</a>
     `;
 
@@ -159,6 +159,7 @@ async function searchRooms() {
   const rooms = await res.json();
 
   const roomListingsContainer = document.getElementById("room-listings");
+  if (!roomListingsContainer) return;
   roomListingsContainer.innerHTML = '';
 
   rooms.forEach(room => {
@@ -176,7 +177,7 @@ async function searchRooms() {
 
     roomListingsContainer.appendChild(roomDiv);
   });
-}// Function to update UI after login
+}
 function logout() {
   localStorage.removeItem('token');
   window.location.href = 'login.html';
@@ -188,7 +189,7 @@ function updateUserUI() {
   if (token && logDiv) {
     // Decode token payload to get username
     const payload = JSON.parse(atob(token.split('.')[1]));
-    const username = payload.id || 'User'; // Adjust if username is stored differently
+    const username = payload.username || 'User'; // Adjust if username is stored differently
 
     // Replace login and signup buttons with user profile display and logout button
     logDiv.innerHTML = `

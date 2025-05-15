@@ -7,7 +7,7 @@ const mongoose = require('./config/db'); // Corrected import path to db.js
 dotenv.config();
 const app = express();
 
-app.use(cors({ origin: 'http://localhost:5000' }));
+app.use(cors());
 
 // Serve uploads directory statically to allow access to uploaded files
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
