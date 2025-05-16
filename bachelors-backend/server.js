@@ -22,21 +22,21 @@ app.use('/api/rooms', roomRoutes);
 app.use('/api/auth', express.json(), authRoutes);
 
 // Serve frontend static files
-app.use(express.static(path.join(__dirname, '..', 'frontend')));
+app.use(express.static(path.join(__dirname, '..', 'docs')));
 
 // Serve the main frontend page on root
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'frontend', 'interface.html'));
+  res.sendFile(path.join(__dirname, '..', 'docs', 'interface.html'));
 });
 
 // Serve interface.html explicitly
 app.get('/interface.html', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'frontend', 'interface.html'));
+  res.sendFile(path.join(__dirname, '..', 'docs', 'interface.html'));
 });
 
 // Serve roomowners.html explicitly
 app.get('/roomowners.html', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'frontend', 'roomowners.html'));
+  res.sendFile(path.join(__dirname, '..', 'docs', 'roomowners.html'));
 });
 
 // Start the server after mongoose connection is established
